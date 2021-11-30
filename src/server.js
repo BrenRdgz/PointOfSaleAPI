@@ -1,6 +1,7 @@
 const express = require('express');
 const connectionDB = require ('./db.connection');
 const routerProducts = require('./routes/products.routes');
+const routerSales = require('./routes/sales.routes');
 const app = express();
 
 connectionDB();
@@ -17,5 +18,5 @@ app.get('/', (req, res) =>{
     res.send('Hi');
 });
 
-app.use("/v1", routerProducts);
+app.use("/v1", routerProducts, routerSales);
 module.exports = app;
